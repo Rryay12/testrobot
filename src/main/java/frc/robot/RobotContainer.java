@@ -4,11 +4,9 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import frc.robot.commands.test;
@@ -33,7 +31,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the triggser bindings
     configureBindings();
-    subsystem.setDefaultCommand(newtest);
+    //subsystem.setDefaultCommand(newtest);
+    subsystem.setDefaultCommand(new RunCommand(() -> subsystem.runaround(0.5), subsystem));
+
   }
 
   /**
