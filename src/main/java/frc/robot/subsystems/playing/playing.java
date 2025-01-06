@@ -15,11 +15,13 @@ public class playing extends SubsystemBase{
     final CANSparkMax lolmotor = new CANSparkMax(5, MotorType.kBrushless);
 
     public playing(){
+        System.out.println("initiated playing");
         lolmotor.leaderMotor.restoreFactoryDefaults();
         lolmotor.setIdleMode(IdleMode.kBrake);
     }
 
     public void runaround(double speed){
+        System.out.println("running");
         lolmotor.set(speed);
     }
 }

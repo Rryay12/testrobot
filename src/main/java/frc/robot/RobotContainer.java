@@ -46,6 +46,7 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     Trigger aButton = m_driverController.a();
     aButton.onTrue(new test(subsystem, () -> m_driverController.getLeftY()));
+    System.out.println("hello");
   }
 
   /**

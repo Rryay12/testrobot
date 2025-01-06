@@ -14,6 +14,7 @@ public class test extends Command{
     public test(playing subsystem,Supplier<Double> leftyaxis){
         play = subsystem;
         power = leftyaxis;
+        System.out.println("initiated test");
 
         addRequirements(play);
     }
