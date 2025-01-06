@@ -10,10 +10,12 @@ import frc.robot.subsystems.playing.playing;
 public class test extends Command{
     private final playing play;
     private final Supplier<Double> power;
+    private final Supplier<Boolean> enable;
 
-    public test(playing subsystem,Supplier<Double> leftyaxis){
+    public test(playing subsystem,Supplier<Double> leftyaxis,Supplier<Boolean> aButton){
         play = subsystem;
         power = leftyaxis;
+        enable = aButton;
         System.out.println("initiated test");
 
         addRequirements(play);
@@ -25,7 +27,9 @@ public class test extends Command{
 
     @Override
     public void execute() {
-        play.runaround(power.get());
+        if (enable.get()){
+            play.runaround(power.get());
+        }
     }
 
     // Called once the command ends or is interrupted.

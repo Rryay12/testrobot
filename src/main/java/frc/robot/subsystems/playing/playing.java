@@ -16,7 +16,6 @@ public class playing extends SubsystemBase{
     }
 
     public void runaround(double speed){
-        System.out.println("running");
         lolmotor.set(speed);
     }
 }
