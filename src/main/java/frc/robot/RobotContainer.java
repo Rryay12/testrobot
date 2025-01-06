@@ -26,13 +26,14 @@ public class RobotContainer {
   private final CommandXboxController m_driverController = new CommandXboxController(1);
   // The robot's subsystems and commands are defined here...
   private playing subsystem = new playing();
+  private test newtest = new test(subsystem,() -> m_driverController.getLeftY(),() -> m_driverController.a().getAsBoolean());
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the triggser bindings
     configureBindings();
-    subsystem.setDefaultCommand(new test(subsystem,() -> m_driverController.getLeftY()));
+    subsystem.setDefaultCommand(newtest);
   }
 
   /**
