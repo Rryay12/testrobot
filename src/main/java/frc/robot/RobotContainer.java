@@ -12,12 +12,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import frc.robot.commands.test;
+import frc.robot.commands.test2;
 import frc.robot.subsystems.playing.playing;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the ]structure of the robot (including
+ * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
@@ -31,6 +32,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the triggser bindings
     configureBindings();
+    subsystem.setDefaultCommand(new test(subsystem,() -> m_driverController.getLeftY()));
   }
 
   /**
@@ -44,9 +46,6 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    Trigger aButton = m_driverController.a();
-    aButton.onTrue(new test(subsystem, () -> m_driverController.getLeftY()));
-    System.out.println("hello");
   }
 
   /**
@@ -56,6 +55,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return new test(subsystem, () -> m_driverController.getLeftY());
+    return new test2() ;
   }
 }
